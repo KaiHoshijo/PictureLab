@@ -2,6 +2,20 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - PictureTester",
+      "request": "launch",
+      "mainClass": "PictureTester",
+      "projectName": "PictureLab_f5a84ba"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Picture",
+      "request": "launch",
+      "mainClass": "Picture",
+      "projectName": "PictureLab_f5a84ba"
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - IntArrayWorkerTester",
       "request": "launch",
       "mainClass": "IntArrayWorkerTester",

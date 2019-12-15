@@ -97,6 +97,57 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  /** sets red and green to 0 */
+  public void keepOnlyBlue() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        Color onlyBlue = new Color(0, 0, pixelObj.getBlue());
+        pixelObj.setColor(onlyBlue);
+      }
+    }
+  }
+
+  /** negates each pixel by subtracting 255 by each RGB value */
+  public void negate() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        int red = 255 - pixelObj.getRed();
+        int green = 255 - pixelObj.getGreen();
+        int blue = 255 - pixelObj.getBlue();
+        Color negates = new Color(red, green, blue);
+        pixelObj.setColor(negates);
+      }
+    }
+  }
+
+  /** Method that turns a picture into a gray version of itself */
+  public void grayscale() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        int averageColor = (pixelObj.getRed() + pixelObj.getGreen() + pixelObj.getBlue()) / 3;
+        Color gray = new Color(averageColor, averageColor, averageColor);
+        pixelObj.setColor(gray);
+      }
+    }
+  }
+
+  /** Method to increase visibility of fish in water.jpg */
+  public void fixUnderwater() {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels) {
+      for (Pixel pixelObj : rowArray) {
+        if (pixelObj.getBlue() > pixelObj.getGreen() && pixelObj.getBlue() > pixelObj.getRed()) {
+          // gets rid of the bright blue
+          pixelObj.setBlue(pixelObj.getGreen()-5);
+          pixelObj.setRed(20);
+        }
+      }
+    }
+  }
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
@@ -223,9 +274,9 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
+    Picture beach = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\water.jpg");
+    // beach.explore();
+    // beach.zeroBlue();s
     beach.explore();
   }
   

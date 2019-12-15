@@ -8,13 +8,45 @@
  */
 public class PictureTester
 {
+  // Gotta keep adding this on... variables!
+  private static String addOn = "C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\";
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture(addOn + "beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
+  }
+  /** Method to test keepOnlyBlue   */
+  public static void testKeepOnlyBlue() {
+    Picture beach = new Picture(addOn + "beach.jpg");
+    beach.explore();
+    beach.keepOnlyBlue();
+    beach.explore();
+  }
+  /** Method to test negate */
+  public static void testNegate() {
+    Picture beach = new Picture(addOn + "beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+  }
+
+  /** Method to test grayscale */
+  public static void testGrayscale() {
+    Picture beach = new Picture(addOn + "beach.jpg");
+    beach.explore();
+    beach.grayscale();
+    beach.explore();
+  }
+
+  /** Method to test fixUnderwater */
+  public static void testFixUnderwater() {
+    Picture water = new Picture(addOn + "water.jpg");
+    water.explore();
+    water.fixUnderwater();
+    water.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -58,13 +90,13 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
-    //testKeepOnlyRed();
+    // testZeroBlue();
+    // testKeepOnlyBlue();
+    // testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
+    // testNegate();
+    // testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
