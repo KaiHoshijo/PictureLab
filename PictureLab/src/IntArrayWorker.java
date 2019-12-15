@@ -98,5 +98,44 @@ public class IntArrayWorker
       }
     }
   }
+
+  /**
+   * returns the # of times a passed integer is in the matrix
+   * @param num is the number that will be checked in the matrix
+   */
+  public int getCount(int num) {
+    int count = 0;
+      for (int row = 0; row < matrix.length; row++) {
+        for (int col = 0; col < matrix[row].length; col++) {
+          if (matrix[row][col] == num) count++;
+        }
+      }
+      return count;
+  }
+
+  /**
+   * returns the largest number in the matrix
+   */
+  public int getLargest() {
+    int max = 0;
+    for (int row = 0; row < matrix.length; row++) {
+      for (int col = 0; col < matrix[row].length; col++) {
+        if (matrix[row][col] > max) max = matrix[row][col];
+      }
+    }
+    return max;
+  }
+
+  /**
+   * sum of all the integers in a specified col
+   * @param numCol is the specificed col's index
+   */
+  public int getColTotal(int numCol) {
+    int total = 0;
+    for (int row = 0; row < matrix.length; row++) {
+      total += matrix[row][numCol];
+    }
+    return total;
+  }
  
 }

@@ -803,10 +803,10 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     // Activity three 
     // 1) Picture pix = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\arch.jpg");
     // 2) 
-    Picture pix = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\FlatEarth.jpg");
-    Picture larger = pix.scale(2, 2);
-    larger.explore();
-    larger.write("Activity3Question2.jpg");
+    // Picture pix = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\FlatEarth.jpg");
+    // Picture larger = pix.scale(.25, .25);
+    // larger.explore();
+    // larger.write("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\test.jpg");
   }
   
 }
