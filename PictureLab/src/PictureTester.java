@@ -48,6 +48,31 @@ public class PictureTester
     water.fixUnderwater();
     water.explore();
   }
+
+  /** Method to test mirrorVerticalLeftToRight */
+  public static void testMirrorVerticalRightToLeft() {
+    Picture temple = new Picture(addOn + "temple.jpg");
+    temple.explore();
+    temple.mirrorVerticalRightToLeft();
+    temple.explore();
+  }
+
+  /** Method to test mirrorHorizontal */
+  public static void testMirrorHorizontal() {
+    Picture motor = new Picture(addOn + "redMotorcycle.jpg");
+    motor.explore();
+    motor.mirrorHorizontal();
+    motor.explore();
+  }
+
+    /** Method to test mirrorHorizontal */
+    public static void testMirrorHorizontalBotToTop() {
+      Picture motor = new Picture(addOn + "redMotorcycle.jpg");
+      motor.explore();
+      motor.mirrorHorizontalBotToTop();
+      motor.explore();
+    }
+    
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
@@ -56,6 +81,14 @@ public class PictureTester
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
+  }
+
+  /** Method to test mirrorDiagonal */
+  public static void testMirrorDiagonal() {
+    Picture beach = new Picture(addOn + "beach.jpg");
+    beach.explore();
+    beach.mirrorDiagonal();
+    beach.explore();
   }
   
   /** Method to test mirrorTemple */
@@ -96,7 +129,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     // testNegate();
     // testGrayscale();
-    testFixUnderwater();
+    // testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
@@ -112,5 +145,8 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+    // testMirrorVerticalRightToLeft();
+    // testMirrorHorizontalBotToTop();
+    testMirrorDiagonal();
   }
 }
