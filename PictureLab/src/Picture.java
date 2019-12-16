@@ -238,6 +238,55 @@ public class Picture extends SimplePicture
       }
     } 
   }
+
+  /** Mirror arms on the snowman */
+  public void mirrorArm() {
+    int mirrorPoint = 204;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel lowerLeftPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 157; row < 190; row++)
+    {
+      // loop from 100 to just before the mirror point
+      for (int col = 100; col < 170; col++)
+      {
+        
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[row+30]                       
+                         [mirrorPoint - col + mirrorPoint];
+        lowerLeftPixel = pixels[row+30][col];
+        rightPixel.setColor(leftPixel.getColor());
+        lowerLeftPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+
+  /** Mirror the seagull to make a new best friend. 
+   * It's 10 PM and I'm tired. The seagull gets a new best friend because of it
+   */
+  public void mirrorGull() {
+    int mirrorPoint = 361;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    
+    // loop through the rows
+    for (int row = 229; row < 320; row++)
+    {
+      // loop from 100 to just before the mirror point
+      for (int col = 235; col < 346; col++)
+      {
+        
+        leftPixel = pixels[row][col];      
+        rightPixel = pixels[row]                       
+                         [mirrorPoint - col + mirrorPoint];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
   
   /** Mirror just part of a picture of a temple */
   public void mirrorTemple()
@@ -259,8 +308,10 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
+        count++;
       }
     }
+    System.out.println(count);
   }
   
   /** copy from the passed fromPic to the
@@ -344,7 +395,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\water.jpg");
+    Picture beach = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\seagull.jpg");
     // beach.explore();
     // beach.zeroBlue();s
     beach.explore();
