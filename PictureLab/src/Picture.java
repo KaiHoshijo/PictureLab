@@ -313,6 +313,30 @@ public class Picture extends SimplePicture
     }
     System.out.println(count);
   }
+
+    /** copy only specific areas of the picture
+   */
+  public void copy(Picture fromPic, int startRow, int startCol, int endRow, int endCol) {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for (int fromRow = 0, toRow = startRow;
+         fromRow < fromPixels.length &&
+                 toRow < endRow;
+         fromRow++, toRow++)
+    {
+      for (int fromCol = 0, toCol = startCol;
+           fromCol < fromPixels[0].length &&
+                   toCol < endCol;
+           fromCol++, toCol++)
+      {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
+  }
   
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
@@ -360,6 +384,24 @@ public class Picture extends SimplePicture
     this.copy(flower2,500,0);
     this.mirrorVertical();
     this.write("collage.jpg");
+  }
+
+   /** Method for personal collage */
+   public void myCollage() {
+    String addOn = "H:\\PictureLab\\src\\images\\";
+    Picture flower1 = new Picture(addOn + "flower1.jpg");
+    Picture flower2 = new Picture(addOn + "flower2.jpg");
+    Picture beach = new Picture(addOn + "beach.jpg");
+    flower2.copy(flower1,0,0);
+    flower1.copy(flower2,400,500);
+    beach.copy(flower1,200,0);
+    Picture beachNoBlue = new Picture(beach);
+    this.copy(beachNoBlue, 0, 0);
+    this.zeroBlue();
+    this.mirrorDiagonal();
+    this.mirrorHorizontalBotToTop();
+    this.mirrorVertical();
+    this.write("C:\\collage.jpg");
   }
   
   
