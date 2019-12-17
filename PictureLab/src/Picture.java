@@ -16,6 +16,11 @@ import java.util.List; // resolves problem with java.awt.List and java.util.List
 public class Picture extends SimplePicture 
 {
   ///////////////////// constructors //////////////////////////////////
+  // private static String addOn = "H:\\PictureLab\\src\\images\\";
+  private static String addOn = "C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\";
+
+  private static String writeTo = "C:\\Users\\kaiho\\";
+  // private static String writeTo = "H:\\";
   
   /**
    * Constructor that takes no arguments 
@@ -372,8 +377,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture(addOn + "flower1.jpg");
+    Picture flower2 = new Picture(addOn + "flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -383,12 +388,11 @@ public class Picture extends SimplePicture
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("collage.jpg");
+    this.write(writeTo + "collage.jpg");
   }
 
    /** Method for personal collage */
    public void myCollage() {
-    String addOn = "H:\\PictureLab\\src\\images\\";
     Picture flower1 = new Picture(addOn + "flower1.jpg");
     Picture flower2 = new Picture(addOn + "flower2.jpg");
     Picture beach = new Picture(addOn + "beach.jpg");
@@ -401,9 +405,8 @@ public class Picture extends SimplePicture
     this.mirrorDiagonal();
     this.mirrorHorizontalBotToTop();
     this.mirrorVertical();
-    this.write("C:\\collage.jpg");
+    this.write(writeTo + "collage.jpg");
   }
-  
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
@@ -412,18 +415,20 @@ public class Picture extends SimplePicture
   {
     Pixel leftPixel = null;
     Pixel rightPixel = null;
+    Pixel nextPixel = null;
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
+    for (int row = 0; row < pixels.length-1; row++)
     {
       for (int col = 0; 
            col < pixels[0].length-1; col++)
       {
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][col+1];
+        nextPixel = pixels[row+1][col];
         rightColor = rightPixel.getColor();
         if (leftPixel.colorDistance(rightColor) > 
-            edgeDist)
+            edgeDist || nextPixel.colorDistance(rightColor) > edgeDist)
           leftPixel.setColor(Color.BLACK);
         else
           leftPixel.setColor(Color.WHITE);
@@ -439,7 +444,7 @@ public class Picture extends SimplePicture
   {
     Picture beach = new Picture("C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\seagull.jpg");
     // beach.explore();
-    // beach.zeroBlue();s
+    // beach.zeroBlue();
     beach.explore();
   }
   

@@ -10,6 +10,7 @@ public class PictureTester
 {
   // Gotta keep adding this on... variables!
   private static String addOn = "C:\\Users\\kaiho\\.VirtualBox\\PictureLab\\PictureLab\\PictureLab\\src\\images\\";
+  // private static String addOn = "H:\\PictureLab\\src\\images\\";
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
@@ -77,7 +78,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture(addOn + "caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -119,15 +120,22 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture(addOn + "640x480.jpg");
     canvas.createCollage();
+    canvas.explore();
+  }
+
+  /** Method to test myCollage method */
+  public static void testMyCollage() {
+    Picture canvas = new Picture(addOn + "640x480.jpg");
+    canvas.myCollage();
     canvas.explore();
   }
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture(addOn + "swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -149,11 +157,11 @@ public class PictureTester
     //testMirrorVertical();
     // testMirrorTemple();
     // testMirrorArms();
-    testMirrorGull();
+    // testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    // testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
@@ -164,5 +172,6 @@ public class PictureTester
     // testMirrorVerticalRightToLeft();
     // testMirrorHorizontalBotToTop();
     // testMirrorDiagonal();
+    testMyCollage();
   }
 }
